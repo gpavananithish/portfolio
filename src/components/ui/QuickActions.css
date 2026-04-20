@@ -1,0 +1,120 @@
+.quick-actions-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center-aligns the column */
+  gap: 15px;
+}
+
+.action-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Ensures dots are centered vertically */
+  gap: 15px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px) scale(0.8);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.quick-actions-container.active .action-items {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0) scale(1);
+}
+
+.main-toggle-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  z-index: 2;
+}
+
+.action-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #111; /* Deep obsidian for pro feel */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+[data-theme='light'] .action-btn {
+  background: #1e293b; /* Sleek slate for light mode */
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.action-btn:hover {
+  transform: scale(1.1);
+  color: white;
+}
+
+.terminal-trigger:hover {
+  background: #38bdf8; /* Sky Blue for Terminal */
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+}
+
+.music-trigger:hover {
+  background: white; /* Default White for Dark Mode */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+[data-theme='light'] .music-trigger:hover {
+  background: #000000; /* Black for Light Mode */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.music-trigger:hover .bars span {
+  background-color: #000; /* Contrast against white bg */
+}
+
+[data-theme='light'] .music-trigger:hover .bars span {
+  background-color: #fff; /* Contrast against black bg */
+}
+
+/* Specific styling for music player icon inside floating button */
+.music-trigger #music-button {
+  margin: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+@media (max-width: 768px) {
+  .quick-actions-container {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .main-toggle-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+  }
+}

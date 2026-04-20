@@ -1,0 +1,117 @@
+.scrollMouseContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  margin: 80px 0; /* Reduced margin for desktop */
+  transition: all 0.3s ease;
+  user-select: none;
+  text-decoration: none !important;
+}
+
+.scrollLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #888;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.scrollLine {
+  height: 1px;
+  flex: 1;
+  max-width: 150px;
+  min-width: 20px;
+}
+
+.scrollLineLeft {
+  background: linear-gradient(to left, #888, transparent);
+}
+
+.scrollLineRight {
+  background: linear-gradient(to right, #888, transparent);
+}
+
+.mouseIconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  transition: transform 0.3s ease;
+}
+
+.mouseIconWrapper svg {
+  animation: mouseFloat 2s ease-in-out infinite;
+}
+
+.mouseWheelAnim {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 6px;
+  background-color: #888;
+  border-radius: 1px;
+  animation: scrollWheel 2s ease-in-out infinite;
+}
+
+@keyframes mouseFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+@keyframes scrollWheel {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(10px); opacity: 0; }
+}
+
+/* Dark Mode Overrides */
+[data-theme='dark'] .scrollLabel,
+[data-theme='dark'] .mouseIconWrapper,
+[data-theme='dark'] .mouseWheelAnim {
+  color: #ddd;
+}
+
+[data-theme='dark'] .scrollLineLeft {
+  background: linear-gradient(to left, #ddd, transparent);
+}
+
+[data-theme='dark'] .scrollLineRight {
+  background: linear-gradient(to right, #ddd, transparent);
+}
+
+[data-theme='dark'] .mouseWheelAnim {
+  background-color: #ddd;
+}
+
+.scrollMouseContainer:hover .mouseIconWrapper {
+  transform: scale(1.1);
+  color: var(--primary-color);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .scrollMouseContainer {
+    margin: 60px 0;
+    gap: 12px;
+  }
+  
+  .scrollLine {
+    max-width: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scrollLabel {
+    display: none; /* Hide text on mobile to avoid overcrowding */
+  }
+  
+  .scrollLine {
+    max-width: 80px;
+  }
+}

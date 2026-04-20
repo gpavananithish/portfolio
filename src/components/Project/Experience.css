@@ -1,0 +1,285 @@
+
+.expCards {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin: 60px 10% 40px 10%;
+  position: relative;
+  z-index: 1;
+}
+
+.expCard {
+  background-color: #f1f5f9;
+  border-radius: 30px;
+  padding: 30px;
+  border: none;
+  opacity: 1; /* Ensure visible by default */
+  visibility: visible;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.05),
+              -8px -8px 16px rgba(255, 255, 255, 0.8),
+              2px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+
+[data-theme='dark'] .expCard {
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+  padding: 1px; /* border thickness */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s ease;
+}
+
+[data-theme='dark'] .expCard::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    rgba(255, 0, 0, 0.8),
+    rgba(255, 255, 0, 0.8),
+    rgba(0, 255, 0, 0.8),
+    rgba(0, 255, 255, 0.8),
+    rgba(0, 0, 255, 0.8),
+    rgba(255, 0, 255, 0.8),
+    rgba(255, 0, 0, 0.8)
+  );
+  top: -50%;
+  left: -50%;
+  animation: rotateBorder 4s linear infinite;
+  z-index: 0;
+  opacity: 0.3;
+  transition: opacity 0.4s ease;
+}
+
+
+[data-theme='dark'] .expCard:hover::before {
+  opacity: 1;
+  animation-duration: 3s; /* Speed up on hover */
+}
+
+[data-theme='dark'] .expCard .expCardContent {
+  position: relative;
+  z-index: 1;
+  background-color: #1a1e23;
+  border-radius: 29px; /* Slightly less than outer to show border */
+  padding: 29px;
+  height: 100%;
+  width: 100%;
+}
+
+@keyframes rotateBorder {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.expCard:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.08),
+              -12px -12px 24px rgba(255, 255, 255, 0.9);
+}
+
+[data-theme='dark'] .expCard:hover {
+  box-shadow: 0 10px 40px rgba(42, 217, 230, 0.2);
+}
+
+
+.expCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.expHeader .roleInfo h2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.compDetails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+.compDetails span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.expIcon {
+  color: var(--primary-color);
+  font-size: 18px;
+}
+
+.expBody {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 25px;
+}
+
+[data-theme='dark'] .expBody {
+  border-top-color: rgba(255, 255, 255, 0.05);
+}
+
+.expDesc ul {
+  list-style: none;
+  padding: 0;
+}
+
+.expDesc li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+.expDesc li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.expTech h4 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 12px;
+}
+
+.techItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 2px 5px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.02),
+              2px 2px 5px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+
+[data-theme='dark'] .techItem {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.05);
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2),
+              2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.techItem:hover {
+  transform: scale(1.05);
+  background: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  border-color: var(--skill-color);
+}
+
+[data-theme='dark'] .techItem:hover {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+.techIcon {
+  font-size: 24px;
+  margin-bottom: 4px;
+  filter: drop-shadow(0 0 5px var(--skill-color));
+}
+
+.techName {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 1100px) {
+  .expCards {
+    margin: 50px 8%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .expBody {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .expHeader .roleInfo h2 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .expCards {
+    margin: 30px 5%;
+    gap: 25px;
+  }
+
+  .expCard {
+    padding: 20px;
+  }
+  
+  [data-theme='dark'] .expCard .expCardContent {
+    padding: 20px;
+  }
+
+  .expHeader .roleInfo h2 {
+    font-size: 24px;
+  }
+
+  .compDetails {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .techGrid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
+  
+  .expDesc li {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .expHeader .roleInfo h2 {
+    font-size: 20px;
+  }
+  
+  .expDesc li {
+    font-size: 14px;
+  }
+  
+  .techGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+

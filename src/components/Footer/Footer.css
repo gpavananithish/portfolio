@@ -1,0 +1,262 @@
+.footerMain {
+  
+    padding: 25px 5% 10px 10%;
+    background: var(--bg-color);
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] .footerMain {
+  border-top-color: rgba(255, 255, 255, 0.05);
+}
+
+.footerContainer {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* Column 1: About */
+.footerLogo {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-color);
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.footerLogo span {
+  font-weight: 300;
+  opacity: 0.6;
+}
+
+.footerBio {
+  font-size: 14.5px;
+  line-height: 1.6;
+  opacity: 0.7;
+  margin-bottom: 25px;
+  max-width: 350px;
+}
+
+.footerContactBrief {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.briefItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.briefItem svg {
+  color: var(--primary-color);
+}
+
+/* Column 2: Links */
+.footerCol h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--heading-color);
+}
+
+
+.footerNav {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footerNav li a {
+  text-decoration: none;
+  color: var(--text-color);
+  opacity: 0.7;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.footerNav li a:hover {
+  opacity: 1;
+  color: var(--primary-color);
+  padding-left: 8px;
+}
+
+/* Column 3: Social */
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.contactLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 15px;
+  opacity: 0.8;
+  transition: color 0.3s ease;
+}
+
+.contactLink:hover {
+  color: var(--primary-color);
+}
+
+.footerSocials {
+  display: flex;
+  gap: 15px;
+}
+
+.sLink {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05),
+              -5px -5px 10px rgba(255, 255, 255, 0.8);
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+[data-theme='dark'] .sLink {
+  background: #1a1e23;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3),
+              -2px -2px 10px rgba(255, 255, 255, 0.02);
+}
+
+.sLink:hover {
+  transform: translateY(-5px);
+  color: white;
+}
+
+.sLink.linkedin:hover { background: #0077b5; }
+.sLink.github:hover { background: #333; }
+.sLink.instagram:hover { background: #e4405f; }
+.sLink.whatsapp:hover { background: #25d366; }
+
+/* Footer Bottom */
+.footerBottom {
+  text-align: center;
+}
+
+.bottomLine {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent);
+  margin-bottom: 10px;
+}
+
+[data-theme='dark'] .bottomLine {
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent);
+}
+
+.footerCredit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.footerCredit p {
+  font-size: 15px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.highlight {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.reactIcon {
+  font-size: 20px;
+  color: #129cc2;
+  animation: rotateReact 5s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes rotateReact {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .footerContainer {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footerMain {
+    padding: 60px 5% 30px 5%;
+  }
+
+  .footerContainer {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 50px;
+  }
+
+  .footerBio {
+    margin: 0 auto 30px auto;
+  }
+
+  .footerCol h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footerContactBrief, .contactDetails, .footerSocials {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footerNav li a:hover {
+    padding-left: 0;
+    transform: scale(1.1);
+  }
+}
+@media (max-width: 480px) {
+  .footerLogo {
+    font-size: 24px;
+  }
+  
+  .footerBio {
+    font-size: 13px;
+    padding: 0 10px;
+  }
+  
+  .footerCol h3 {
+    font-size: 16px;
+  }
+  
+  .footerNav li a {
+    font-size: 14px;
+  }
+
+  .footerCredit {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}

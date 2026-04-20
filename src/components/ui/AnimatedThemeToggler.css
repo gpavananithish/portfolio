@@ -1,0 +1,77 @@
+.simple-theme-toggle {
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  width: 42px;
+  height: 42px;
+  transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.simple-theme-toggle.light {
+  background-color: #f1f5f9;
+  border-color: #e2e8f0;
+  box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.05),
+              inset -3px -3px 6px rgba(255, 255, 255, 0.8),
+              2px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.simple-theme-toggle.light:hover {
+  background-color: #e2e8f0;
+  transform: scale(1.05);
+}
+
+.simple-theme-toggle.dark {
+  background-color: #1a1e23;
+  border-color: #2a313a;
+  box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.6),
+              inset -2px -2px 5px rgba(255, 255, 255, 0.05),
+              2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.simple-theme-toggle.dark:hover {
+  background-color: #21262d;
+  transform: scale(1.05);
+}
+
+.simple-theme-toggle__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter 0.3s ease;
+}
+
+/* Glow specifically for the icon using SVG drop-shadows */
+.simple-theme-toggle.light .simple-theme-toggle__icon svg {
+  animation: pulse-glow-light 2.5s infinite alternate;
+}
+
+.simple-theme-toggle.dark .simple-theme-toggle__icon svg {
+  animation: pulse-glow-dark 3s infinite alternate;
+}
+
+@keyframes pulse-glow-light {
+  0% {
+    filter: drop-shadow(0px 0px 4px rgba(243, 166, 0, 0.4)) brightness(1);
+    transform: scale(0.98);
+  }
+  100% {
+    filter: drop-shadow(0px 0px 12px rgba(255, 200, 0, 0.9)) brightness(1.2);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes pulse-glow-dark {
+  0% {
+    filter: drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.4)) brightness(0.9);
+  }
+  100% {
+    filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.9)) brightness(1.1);
+  }
+}

@@ -1,0 +1,83 @@
+.loaderScreen {
+  height: 100vh;
+  background: #06343a;
+  color: #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+/* 🔄 Spinner animation */
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4.8px solid #e7e8e85d;
+  border-top: 4.8px solid #45f6de;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.spinner::before {
+  content: "0%";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    content: "0%";
+    transform: rotate(0deg);
+  }
+  to {
+    content: "100%";
+    transform: rotate(360deg);
+  }
+}
+
+/* 📋 Steps */
+.loaderSteps {
+  width: 400px;
+}
+
+.loaderStep {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 11.2px;
+  margin-bottom: 8px;
+  background: #020617;
+  border-radius: 16px;
+  font-size: 16px;
+}
+
+.tick {
+  font-size: 12px;
+  /* padding: 10px;
+    border-radius: 50%;
+    background-color: aliceblue; */
+  color: #22c55e;
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.arrIcon {
+  display: block;
+  font-size: 24px;
+
+  margin: auto;
+}

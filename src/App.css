@@ -1,0 +1,30 @@
+
+
+/* animation class */
+.page-animate {
+  animation: myAnim 1.2s ease forwards;
+}
+
+/* improved professional animation */
+@keyframes myAnim {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .page-animate {
+    animation: none;
+    transform: none;
+  }
+}

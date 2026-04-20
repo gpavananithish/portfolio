@@ -1,0 +1,133 @@
+/* Basic Setup */
+:root {
+  /* Light Mode Defaults */
+  --cursor-arrow-stroke: #000;
+  --cursor-dot-bg: rgb(0, 0, 0); /* Slight transparency for visibility */
+  --cursor-dot-text: #fff;
+  --cursor-dot-border: transparent;
+}
+
+[data-theme="dark"] {
+  /* Dark Mode Defaults */
+  --cursor-arrow-stroke: #fff;
+  --cursor-dot-bg: rgb(255, 255, 255); /* Slight transparency for visibility */
+  --cursor-dot-text: #000;
+}
+
+/* Hide default cursor globally, but allow pointer on interactive elements */
+body {
+  cursor: none;
+}
+
+a, button, input, textarea, select, [role="button"] {
+  cursor: pointer;
+}
+
+/* --- Arrow Cursor --- */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 30px;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: normal; 
+}
+
+/* Hide the custom arrow when hovering, so the system pointer takes over */
+.custom-cursor.is-hovering {
+  opacity: 0;
+}
+
+
+
+.custom-cursor.is-hidden {
+  opacity: 0;
+}
+
+/* --- Follower Disc --- */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  
+  /* Initial Size: 10px */
+  width: 8px; 
+  height: 8px;
+  
+  /* Center offset (-5px) */
+  margin-top: -10px;
+  margin-left: -10px;
+  
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998; 
+  
+  background-color: var(--cursor-dot-bg);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  will-change: transform, width, height, background-color;
+  
+  /* GSAP handles transform. We only transition visual props here. */
+  transition: 
+    width 0.3s ease, 
+    height 0.3s ease,
+    background-color 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.cursor-dot.is-hidden {
+  opacity: 0;
+}
+
+/* --- Hover State --- */
+.cursor-dot.is-hovering {
+  /* Hover Size: 50px */
+  width: 50px;
+  height: 50px;
+  
+  /* Center offset (-25px) */
+  margin-top: 25px; 
+  margin-left: -10px;
+  
+  background-color: var(--cursor-dot-bg);
+  /* Ensure opacity allows "background buttons or icons visible" if desired? 
+     User said "bg colr black", but also mentioned visibility. 
+     A solid color will block. Let's add slight opacity or a blend mode override if needed.
+     For now, adhering to strict "bg color black".
+  */
+}
+
+/* --- CLICK Text --- */
+.dot-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  opacity: 0;
+  transform: scale(0.5);
+  color: var(--cursor-dot-text);
+  
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.cursor-dot.is-hovering .dot-text {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Touch Device Support */
+@media (pointer: coarse) {
+  .custom-cursor, .cursor-dot {
+    display: none !important;
+  }
+  body, a, button, input {
+    cursor: auto !important;
+  }
+}
