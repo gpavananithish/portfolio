@@ -2,6 +2,9 @@
 
 Welcome to my personal portfolio website! This project is a showcase of my journey as an aspiring Software Developer, highlighting my skills, projects, and educational background with a premium, responsive design.
 
+🔗 **Live Link:** [gpavananithish.vercel.app](https://gpavananithish.vercel.app/)
+
+
 ## ✨ Features
 
 - **Modern UI/UX**: Built with a sleek, dark-themed aesthetic featuring glassmorphism and smooth animations.
