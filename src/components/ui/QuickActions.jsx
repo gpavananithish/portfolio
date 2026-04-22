@@ -1,44 +1,27 @@
-import React, { useState } from 'react';
-import { RiTerminalBoxFill, RiMusic2Fill, RiCloseLine, RiApps2Fill } from 'react-icons/ri';
-import Terminal from '../Terminal/Terminal';
+import React from 'react';
+import { RiTerminalBoxFill } from 'react-icons/ri';
 import AudioPlayer from '../AudioPlayer/AudioPlayer';
+import { useMusic } from '../../context/MusicContext';
 import './QuickActions.css';
 
 const QuickActions = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
-
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const { openTerminal } = useMusic();
 
   return (
-    <>
-      <div className={`quick-actions-container ${isOpen ? 'active' : ''}`}>
-        <div className="action-items">
-          <div 
-            className="action-btn terminal-trigger" 
-            title="Open Terminal"
-            onClick={() => {
-              setIsTerminalOpen(true);
-              setIsOpen(false);
-            }}
-          >
-            <RiTerminalBoxFill />
-          </div>
-          
-          <div className="action-btn music-trigger" title="Toggle Music">
-             <AudioPlayer />
-          </div>
-        </div>
-
-        <button className="main-toggle-btn" onClick={toggleMenu} title="Menu">
-          {isOpen ? <RiCloseLine /> : <RiApps2Fill />}
-        </button>
+    <div className="quick-actions-container">
+      {/* Standalone Action Buttons for Desktop */}
+      <div className="action-btn music-trigger" title="Toggle Music">
+         <AudioPlayer />
       </div>
-
-      {isTerminalOpen && (
-        <Terminal onClose={() => setIsTerminalOpen(false)} />
-      )}
-    </>
+      
+      <div 
+        className="action-btn terminal-trigger" 
+        title="Open Terminal"
+        onClick={openTerminal}
+      >
+        <RiTerminalBoxFill />
+      </div>
+    </div>
   );
 };
 

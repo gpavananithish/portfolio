@@ -622,7 +622,40 @@ abbr:hover::after {
    }
 }
 
+.mobile-header-controls {
+  display: none;
+}
+
+.mobile-action-btn {
+  background: var(--text-color);
+  color: var(--bg-color);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-action-btn:hover {
+  opacity: 1;
+}
+
 @media (max-width: 768px) {
+  .mobile-header-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-right: 10px;
+  }
+  
   .header {
     padding: 5px 12px;
     height: 55px;

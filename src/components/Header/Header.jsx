@@ -19,6 +19,9 @@ import "./Header.css";
 import { useLocation } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
 import { AnimatedThemeToggler } from "../ui/AnimatedThemeToggler";
+import { useMusic } from "../../context/MusicContext";
+import { RiTerminalBoxFill } from "react-icons/ri";
+import AudioPlayer from "../AudioPlayer/AudioPlayer";
 
 
 function Header() {
@@ -26,6 +29,7 @@ function Header() {
   const [activeIndex, setActiveIndex] = useState(-1);
   const [showBg, setShowBg] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const { openTerminal } = useMusic();
   const isClickingRef = useRef(false);
 
   const menuItems = [
@@ -167,6 +171,19 @@ function Header() {
           >
             <RiLinkedinBoxLine className="socialIcon" />
           </NavLink>
+
+          <div className="mobile-header-controls">
+            <button 
+              className="mobile-action-btn terminal-trigger" 
+              onClick={openTerminal}
+              title="Open Terminal"
+            >
+              <RiTerminalBoxFill />
+            </button>
+            <div className="mobile-action-btn music-trigger">
+              <AudioPlayer />
+            </div>
+          </div>
 
           <AnimatedThemeToggler />
         </div>

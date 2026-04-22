@@ -1,8 +1,16 @@
 import { motion } from "framer-motion";
 import { HiArrowLongRight } from "react-icons/hi2";
+import { useMusic } from "../../context/MusicContext";
 import "./Loader.css";
 
 const Loader = ({ onComplete }) => {
+  const { playMusic } = useMusic();
+
+  const handleExplore = () => {
+    playMusic();
+    onComplete();
+  };
+
   return (
     <motion.div 
       className="loaderScreen"
@@ -26,7 +34,7 @@ const Loader = ({ onComplete }) => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 0.6 }}
         >
-          <button className="explore-btn" onClick={onComplete}>
+          <button className="explore-btn" onClick={handleExplore}>
             Explore
             <HiArrowLongRight className="btn-icon" />
             <div className="btn-glow"></div>
