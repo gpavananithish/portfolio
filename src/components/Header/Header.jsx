@@ -109,7 +109,7 @@ function Header() {
         <div className="left">
           <HashLink
             to="/#"
-            style={{ "text-decoration": "none", color: "var(--text-color)" }}
+            style={{ textDecoration: "none", color: "var(--text-color)" }}
           >
             <span>&gt;&gt;</span>
             {/* <span className="name">&#608;&#420;&#627;</span> */}

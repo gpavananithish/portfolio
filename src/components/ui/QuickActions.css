@@ -108,13 +108,30 @@
 
 @media (max-width: 768px) {
   .quick-actions-container {
-    bottom: 20px;
-    right: 20px;
+    bottom: 100px; /* Above the bottom navigation bar */
+    right: 15px;
+    gap: 12px;
   }
   
   .main-toggle-btn {
     width: 50px;
     height: 50px;
     font-size: 22px;
+  }
+
+  .action-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+
+  .action-items {
+    gap: 12px;
+    /* Adjusting movement to prevent overlap with the main button during animation */
+    transform: translateY(10px) scale(0.8);
+  }
+
+  .quick-actions-container.active .action-items {
+    transform: translateY(0) scale(1);
   }
 }

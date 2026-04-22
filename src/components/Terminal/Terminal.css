@@ -110,6 +110,23 @@
   color: white;
 }
 
+.mac-close-icon {
+  display: none;
+  background: var(--text-color);
+  color: var(--bg-color);
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
 .terminal-body {
   flex: 1;
   padding: 40px;
@@ -136,6 +153,14 @@
   .terminal-body {
     padding: 20px;
     font-size: 13px;
+  }
+
+  .mac-close-text {
+    display: none;
+  }
+
+  .mac-close-icon {
+    display: flex;
   }
 }
 

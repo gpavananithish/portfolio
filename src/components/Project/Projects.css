@@ -1,4 +1,9 @@
 
+#projects {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 .projCards {
   display: flex;
   flex-direction: column;
@@ -7,6 +12,7 @@
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  perspective: 1500px; /* Enhanced 3D depth for animations */
 }
 
 .project_card {

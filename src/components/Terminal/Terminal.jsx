@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { RiTerminalBoxLine, RiCommandLine } from "react-icons/ri";
+import { RiTerminalBoxLine, RiCommandLine, RiCloseLine } from "react-icons/ri";
 import { FaTerminal } from "react-icons/fa";
 import SectionHeading from "../ui/SectionHeading";
 import "./Terminal.css";
@@ -97,9 +97,10 @@ const Terminal = ({ onClose }) => {
             <span className="mac-dot minimize"></span>
             <span className="mac-dot maximize"></span>
           </div>
-          <span className="window-label">GPN: ~ (cli)</span>
+          <span className="window-label">GPN: ~ (CLI)</span>
           <div className="right-controls">
             <button className="mac-close-text" onClick={onClose}>Close [esc]</button>
+            <button className="mac-close-icon" onClick={onClose}><RiCloseLine /></button>
           </div>
         </div>
         <div className="terminal-body" id="terminalBody" onClick={() => inputRef.current?.focus()}>
@@ -110,7 +111,7 @@ const Terminal = ({ onClose }) => {
                   <div className="grid-item"><span>info</span> - Summary</div>
                   <div className="grid-item"><span>tech</span> - Stack</div>
                   <div className="grid-item"><span>work</span> - Projects</div>
-                  <div className="grid-item"><span>expe</span> - Experience</div>
+                  <div className="grid-item"><span>exp</span> - Experience</div>
                   <div className="grid-item"><span>cert</span> - Credentials</div>
                   <div className="grid-item"><span>edu </span> - Academia</div>
                   <div className="grid-item"><span>mail</span> - Contact</div>

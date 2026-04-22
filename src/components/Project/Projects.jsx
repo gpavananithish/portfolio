@@ -22,18 +22,54 @@ const Projects = () => {
 
     const ctx = gsap.context(() => {
       const cards = gsap.utils.toArray(".project_card");
+      
       cards.forEach((card, i) => {
-        gsap.from(card, {
+        const image = card.querySelector(".project_image");
+        const isEven = i % 2 === 0;
+
+        // High-Dynamic Entrance & Exit animation for images
+        gsap.fromTo(image, 
+          {
+            opacity: 0,
+            x: isEven ? "-100vw" : "100vw", // Fly in from outside the entire website
+            rotationY: isEven ? -40 : 40,    // 3D Slant perspective
+            scale: 0.5,
+            skewX: isEven ? -10 : 10,
+            filter: "blur(20px)",
+            z: -1000,
+          },
+          {
+            scrollTrigger: {
+              trigger: card,
+              start: "top 95%",
+              end: "bottom 5%",
+              toggleActions: "play reverse play reverse",
+            },
+            opacity: 1,
+            x: 0,
+            rotationY: 0,
+            scale: 1,
+            skewX: 0,
+            filter: "blur(0px)",
+            z: 0,
+            duration: 1,
+            ease: "power4.out",
+            force3D: true,
+          }
+        );
+
+        // Subtle parallax effect on content
+        const content = card.querySelector(".project_content");
+        gsap.from(content, {
           scrollTrigger: {
             trigger: card,
-            start: "top 95%",
-            once: true, // Only trigger once to save resources
+            start: "top 90%",
+            toggleActions: "play none none reverse",
           },
           opacity: 0,
-          y: 30,
-          duration: 0.4,
+          y: 50,
+          duration: 1,
           ease: "power2.out",
-          clearProps: "all",
         });
       });
     }, containerRef);

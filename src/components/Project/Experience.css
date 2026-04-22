@@ -260,7 +260,42 @@
   }
 
   .techGrid {
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  
+  .techItem {
+    flex: 0 0 auto;
+    padding: 4px 12px;
+    border-radius: 50px;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.03);
+  }
+
+  [data-theme='dark'] .techItem {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .techIcon {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+
+  .techName {
+    font-size: 10px;
+    letter-spacing: 0.2px;
+  }
+
+  .techItem:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 5px 15px var(--skill-color-alpha, rgba(42, 217, 230, 0.2));
   }
   
   .expDesc li {
@@ -278,7 +313,15 @@
   }
   
   .techGrid {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  
+  .techItem {
+    padding: 3px 10px;
+  }
+  
+  .techName {
+    font-size: 9px;
   }
 }
 

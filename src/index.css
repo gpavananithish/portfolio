@@ -8,7 +8,12 @@
   --input-bg: #ffffff;
   --border-color: rgba(23, 22, 22, 0.2);
   --shadow-color: rgba(0, 0, 0, 0.1);
+  --light-shadow: rgba(255, 255, 255, 1);
   --heading-color: rgba(10, 127, 133, 0.808);
+  --github-color: #181717;
+  --eclipse-color: #2C2255;
+  --django-color: #092e20;
+  --git-color: #f1502f;
   --icon-color: rgb(28, 130, 113);
   --card-border: rgba(0, 0, 0, 0.288);
   --section-padding: 120px 10%;
@@ -32,7 +37,12 @@
   --input-bg: #2a2a2a;
   --border-color: rgba(255, 255, 255, 0.2);
   --shadow-color: rgba(0, 0, 0, 0.5);
+  --light-shadow: rgba(255, 255, 255, 0.03);
   --heading-color: rgb(42, 217, 230);
+  --github-color: #ffffff;
+  --eclipse-color: #c5b8ff;
+  --django-color: #00f294;
+  --git-color: #ff5722;
   --icon-color: rgb(42, 217, 230);
   --card-border: rgba(255, 255, 255, 0.2);
 }
