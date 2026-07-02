@@ -82,6 +82,9 @@ An educational gateway showcasing India's space achievements with interactive 3D
 ### ☁️ Weather Forecast (WFC)
 A high-performance weather intelligence application with cinematic atmospheric rendering.
 
+### ⌨️ TestUrTyping
+A modern, dynamic, and interactive typing test web application built with React 19 to help users track and improve their typing speed, accuracy, and efficiency.
+
 ## 📄 License
 
 This project is open-source and available under the [MIT License](LICENSE).
