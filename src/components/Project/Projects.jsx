@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import { FaRegFileCode } from "react-icons/fa";
-import { SiHtml5, SiCss3, SiPython, SiDjango, SiSqlite, SiGooglegemini, SiReact, SiJavascript } from "react-icons/si";
-import { FaPython } from "react-icons/fa";
+import { FaRegFileCode, FaPython, FaChartLine } from "react-icons/fa";
+import { SiHtml5, SiCss3, SiPython, SiDjango, SiSqlite, SiGooglegemini, SiReact, SiJavascript, SiVite, SiGreensock } from "react-icons/si";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ProjectCard from "./ProjectCard";
@@ -9,7 +8,7 @@ import SectionHeading from "../ui/SectionHeading";
 import "./Projects.css";
 
 import { 
-  liver_project, isa_project, weather_project 
+  liver_project, isa_project, weather_project, typing_test_mockup 
 } from "../../assets/images";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -42,8 +41,7 @@ const Projects = () => {
             scrollTrigger: {
               trigger: card,
               start: "top 95%",
-              end: "bottom 5%",
-              toggleActions: "play reverse play reverse",
+              toggleActions: "play none none reverse",
             },
             opacity: 1,
             x: 0,
@@ -147,6 +145,30 @@ const Projects = () => {
         { name: "CSS", icon: <SiCss3 />, color: "#1572B6" },
         { name: "JS", icon: <SiJavascript />, color: "#F7DF1E" },
       ],
+    },
+    {
+      name: "TestUrTyping",
+      tagline: "Modern interactive typing test web app",
+      desc: "A modern, dynamic, and interactive typing test web application built with React to help users improve their typing speed, accuracy, and efficiency. It features custom drills, letter selector, virtual keyboard, and visual analytics.",
+      image: typing_test_mockup,
+      gitLink: "https://github.com/gpavananithish/TestUrTyping",
+      liveLink: "https://testurtyping.vercel.app",
+      galleryLink: "#",
+      features: [
+        "Real-time Analytics (WPM, Accuracy, Speed)",
+        "Custom Drills & Letter Selector",
+        "Interactive On-Screen Virtual Keyboard",
+        "Smooth GSAP Micro-animations",
+        "Detailed Performance Charts over time",
+        "Modern Responsive Aesthetic"
+      ],
+      techStack: [
+        { name: "React 19", icon: <SiReact />, color: "#61DAFB" },
+        { name: "Vite", icon: <SiVite />, color: "#646CFF" },
+        { name: "GSAP", icon: <SiGreensock />, color: "#88CE02" },
+        { name: "Recharts", icon: <FaChartLine />, color: "#3182BD" },
+        { name: "CSS", icon: <SiCss3 />, color: "#1572B6" }
+      ]
     }
   ];
 

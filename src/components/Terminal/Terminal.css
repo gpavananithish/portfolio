@@ -13,7 +13,10 @@
   animation: fadeIn 0.3s ease;
 }
 
+/* Terminal Window container */
 .terminal-window.full-screen.mac-style {
+  display: flex;
+  flex-direction: column;
   width: 95%;
   height: 90%;
   max-width: 1300px;
@@ -200,8 +203,21 @@
 }
 
 .terminal-body::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.25);
   border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+[data-theme='light'] .terminal-body::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='light'] .terminal-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .terminal-line {
@@ -259,7 +275,6 @@
   }
   
   .terminal-body {
-    height: 350px;
     font-size: 12px;
   }
 

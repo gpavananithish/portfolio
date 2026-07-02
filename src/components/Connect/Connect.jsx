@@ -105,7 +105,7 @@ const Connect = () => {
               <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="connectSocialIcon linkedin"><FaLinkedinIn /></a>
               <a href="https://github.com" target="_blank" rel="noreferrer" className="connectSocialIcon github"><FaGithub /></a>
               <a href="https://instagram.com" target="_blank" rel="noreferrer" className="connectSocialIcon instagram"><FaInstagram /></a>
-              <a href="https://wa.me/911234567890" target="_blank" rel="noreferrer" className="connectSocialIcon whatsapp"><FaWhatsapp /></a>
+              <a href="https://wa.me/919542693558" target="_blank" rel="noreferrer" className="connectSocialIcon whatsapp"><FaWhatsapp /></a>
             </div>
 
           </div>
